@@ -34,15 +34,10 @@ body{
 
 }
 
-.user-container{
-     display: flex;
-    color: grey;
-    font-size: 1.5rem;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-     margin-right: 10px;
+.user-container {
+    margin: 20px;
 }
-
 .container{
-
+ display: flex;
 
 }
