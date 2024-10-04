@@ -20,8 +20,9 @@ var reviews = [
         date: '27-03-2021'
     },
 ];
-function showReviewTotal(value, reviewer) {
-    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer;
+// attaching types to both parameters to make sure they can only be of those types
+function showReviewTotal(value, reviewer, loyaltyUser) {
+    var iconDisplay = loyaltyUser ? '⭐' : '';
+    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
-showReviewTotal(reviews.length, reviews[0].name);
-showReviewTotal(reviews.length, reviews[0].name);
+showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);

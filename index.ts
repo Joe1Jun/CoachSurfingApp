@@ -3,6 +3,8 @@
 const reviewTotalDisplay = document.querySelector('#reviews')
 const recentReviewerDisplay = document.querySelector('#mostRecent-reviewer')
 
+
+
 const reviews  = [
     {
         name: 'Sheia',
@@ -23,12 +25,14 @@ const reviews  = [
         date: '27-03-2021'
     },
 ]
-
-function showReviewTotal (value : number, reviewer: string) {
-    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer
+// attaching types to both parameters to make sure they can only be of those types
+function showReviewTotal(value: number, reviewer: string, loyaltyUser: boolean) {
+    const iconDisplay = loyaltyUser ? '⭐' : ''
+    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay
+    
 }
 
-showReviewTotal(reviews.length, reviews[0].name)
+showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
 
-showReviewTotal(reviews.length, reviews[0].name)
+
