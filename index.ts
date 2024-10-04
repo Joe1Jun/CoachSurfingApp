@@ -24,47 +24,11 @@ const reviews  = [
     },
 ]
 
-
-
-
-
-
-function displayNumberofReviews(reviewsCount: number) {
-    //The ! in TypeScript is known as the non-null assertion operator. It tells TypeScript that you're sure the value is neither null nor undefined, even though TypeScript might think it could be.
-    reviewTotalDisplay.innerHTML = `Total reviews: ${reviewsCount}`;
-    
-    //It must check if not null below is an example of how to do it with an if statement
-    
-    // if (reviewTotalDisplay) {
-    //     reviewTotalDisplay.innerHTML = "Total reviews: 3";
-    // }
-
-
+function showReviewTotal (value : number, reviewer: string) {
+    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer
 }
 
-function displayMostRecentReviewer() {
-    
-    let mostRecentReviewer = reviews[0]; // Start with the first reviewer as the most recent
+showReviewTotal(reviews.length, reviews[0].name)
 
 
-    for (let i = 0; i < reviews.length; i++){
-        const currentParsedDate = new Date(reviews[i].date);
-        const mostRecentParsedDate = new Date(mostRecentReviewer.date)
-       
-
-        //compare dates
-        if (currentParsedDate > mostRecentParsedDate) {
-            mostRecentReviewer = reviews[i]
-        }
-     }
-    
-    
-
-    recentReviewerDisplay.innerHTML = mostRecentReviewer.name;
-
-}
-
-
-
-displayNumberofReviews(reviews.length)
-displayMostRecentReviewer();
+showReviewTotal(reviews.length, reviews[0].name)

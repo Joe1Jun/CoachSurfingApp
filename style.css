@@ -38,6 +38,13 @@ body{
     margin: 20px;
 }
 .container{
- display: flex;
+  
+  color: grey;
 
+}
+#reviews{
+  font-size: 1rem;
+}
+#mostRecent-reviewer{
+  font-size: 1rem;
 }
