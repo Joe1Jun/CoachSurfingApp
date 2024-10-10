@@ -1,5 +1,6 @@
+var returningUserDisplay = document.querySelector('#returning-user');
 var reviewTotalDisplay = document.querySelector('#reviews');
-var recentReviewerDisplay = document.querySelector('#mostRecent-reviewer');
+var userNameDisplay = document.querySelector('#user');
 var reviews = [
     {
         name: 'Sheia',
@@ -26,3 +27,14 @@ function showReviewTotal(value, reviewer, loyaltyUser) {
     reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+var you = {
+    userName: "Bobby",
+    isReturning: true,
+};
+function populateUser(isReturning, userName) {
+    if (isReturning) {
+        returningUserDisplay.innerHTML = 'back';
+    }
+    userNameDisplay.innerHTML = userName;
+}
+populateUser(you.isReturning, you.userName);

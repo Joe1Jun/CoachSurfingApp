@@ -1,7 +1,10 @@
 
-
+const returningUserDisplay = document.querySelector('#returning-user')
 const reviewTotalDisplay = document.querySelector('#reviews')
-const recentReviewerDisplay = document.querySelector('#mostRecent-reviewer')
+const userNameDisplay = document.querySelector('#user')
+
+
+let isOpen : boolean
 
 
 
@@ -35,4 +38,26 @@ function showReviewTotal(value: number, reviewer: string, loyaltyUser: boolean) 
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
 
+const you: {
+    userName: string;
+    isReturning: boolean;
+    age: number
+} = {
+    userName: "Bobby",
+    isReturning: true,
+    age: 23
+}
+
+console.log(you.userName);
+
+
+
+function populateUser(isReturning : boolean, userName : string ) {
+    if (isReturning){
+        returningUserDisplay.innerHTML = 'back'
+    }
+    userNameDisplay.innerHTML = userName
+}
+
+populateUser(you.isReturning, you.userName)
 
