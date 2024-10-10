@@ -1,12 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "strict": false,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "target": "es6",                   // Output JavaScript targeting ES6
+    "module": "es6",                   // Use ES6 module system (not CommonJS)
+    "moduleResolution": "node",        // How module paths are resolved (like Node.js)
+    "outDir": "./dist",                    // Output files in the same folder
+    "allowJs": true, // Allow JavaScript files to be compiled
+
+    "esModuleInterop": true,           // Allows compatibility between ES6 and CommonJS modules
+    "forceConsistentCasingInFileNames": true,
+    "strict": false                    // Enable all strict type-checking options
+  },
+  "include": ["*.ts"],               // Include all TypeScript files in the current folder
+  "exclude": ["node_modules"]          // Exclude node_modules folder
+
 }
+
+
 
 
