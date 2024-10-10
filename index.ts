@@ -49,7 +49,52 @@ const you: {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
+//Properties
+
+const properties: {
+    image: string;
+    title: string;
+    price: number;
+    location: {
+        address: string;
+        town_city: string;
+        postcode: string;
+        country: string;
+    }
+   
+    contact: string;
+    available: boolean;
+}[] = [{
+    
+
+    image:'',
+    title: '',
+    price: 5,
+    address: '',
+    town_city: '',
+    postcode: '',
+    country: '',
+    contact: '',
+    available: true
+
+
+
+}
+    
+
+
+]
+
+  
+    
+
+
+
+
+
 // Functions
+//These functions expect to be passed values of the same types defined in their function
+// This is similiar to java.  The arguments are defined based on type in the function . This means errors show up easier.
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
 populateUser(you.isReturning, you.firstName)
