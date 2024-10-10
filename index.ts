@@ -1,14 +1,19 @@
 
-const returningUserDisplay = document.querySelector('#returning-user')
-const reviewTotalDisplay = document.querySelector('#reviews')
-const userNameDisplay = document.querySelector('#user')
+// Object Types Challenge
+// Based on what we discussed we need to make up our Property Objects and array,
+// can you create that array, making sure to assign the correct Types?
 
+//This imports the functions from the utils.ts file
+import { showReviewTotal, populateUser } from './utils'
+let isOpen: boolean
 
-let isOpen : boolean
-
-
-
-const reviews  = [
+// Reviews
+const reviews : { 
+    name: string; 
+    stars: number; 
+    loyaltyUser: boolean; 
+    date: string
+    }[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -28,36 +33,23 @@ const reviews  = [
         date: '27-03-2021'
     },
 ]
-// attaching types to both parameters to make sure they can only be of those types
-function showReviewTotal(value: number, reviewer: string, loyaltyUser: boolean) {
-    const iconDisplay = loyaltyUser ? '⭐' : ''
-    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay
-    
+
+// User
+const you: {
+    firstName: string;
+    lastName: string;
+    isReturning: boolean;
+    age: number;
+    stayedAt: string[]
+} = {
+    firstName: 'Bobby',
+    lastName: 'Brown',
+    isReturning: true,
+    age: 35,
+    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
+// Functions
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
-
-const you: {
-    userName: string;
-    isReturning: boolean;
-    age: number
-} = {
-    userName: "Bobby",
-    isReturning: true,
-    age: 23
-}
-
-console.log(you.userName);
-
-
-
-function populateUser(isReturning : boolean, userName : string ) {
-    if (isReturning){
-        returningUserDisplay.innerHTML = 'back'
-    }
-    userNameDisplay.innerHTML = userName
-}
-
-populateUser(you.isReturning, you.userName)
-
+populateUser(you.isReturning, you.firstName)

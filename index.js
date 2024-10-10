@@ -1,6 +1,12 @@
-var returningUserDisplay = document.querySelector('#returning-user');
-var reviewTotalDisplay = document.querySelector('#reviews');
-var userNameDisplay = document.querySelector('#user');
+"use strict";
+// Object Types Challenge
+// Based on what we discussed we need to make up our Property Objects and array,
+// can you create that array, making sure to assign the correct Types?
+Object.defineProperty(exports, "__esModule", { value: true });
+//This imports the functions from the utils.ts file
+var utils_1 = require("./utils");
+var isOpen;
+// Reviews
 var reviews = [
     {
         name: 'Sheia',
@@ -21,20 +27,14 @@ var reviews = [
         date: '27-03-2021'
     },
 ];
-// attaching types to both parameters to make sure they can only be of those types
-function showReviewTotal(value, reviewer, loyaltyUser) {
-    var iconDisplay = loyaltyUser ? '⭐' : '';
-    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
-}
-showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+// User
 var you = {
-    userName: "Bobby",
+    firstName: 'Bobby',
+    lastName: 'Brown',
     isReturning: true,
+    age: 35,
+    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
-function populateUser(isReturning, userName) {
-    if (isReturning) {
-        returningUserDisplay.innerHTML = 'back';
-    }
-    userNameDisplay.innerHTML = userName;
-}
-populateUser(you.isReturning, you.userName);
+// Functions
+(0, utils_1.showReviewTotal)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+(0, utils_1.populateUser)(you.isReturning, you.firstName);
