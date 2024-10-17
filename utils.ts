@@ -1,18 +1,20 @@
+//make sure to include .js even in the typescript file.
+import { LoyaltyLevels } from "./enums.js";
 const reviewTotalDisplay = document.querySelector('#reviews')
 const returningUserDisplay = document.querySelector('#returning-user')
 const userNameDisplay = document.querySelector('#user')
 
-export function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
-    const reviewTotalDisplay = document.querySelector('#reviews');
-    const iconDisplay = isLoyalty ? '⭐' : '';
+export function showReview(value: number, reviewer: string, loyaltyUser: LoyaltyLevels) {
+    //use ternary operator 
+    let reviewIcon = (loyaltyUser === LoyaltyLevels.GOLD_USER) ? '⭐️' : ' ';
+
     if (reviewTotalDisplay) {
-        reviewTotalDisplay.innerHTML = `Review total: ${value} | Last reviewed by ${reviewer} ${iconDisplay}`;
+        reviewTotalDisplay.innerHTML = `Review total: ${value} | Last reviewed by ${reviewer} ${reviewIcon}`;
     }
 }
 
 export function populateUser(isReturning: boolean, userName: string) {
-    const returningUserDisplay = document.querySelector('#returning-user');
-    const userNameDisplay = document.querySelector('#user');
+   
 
     if (returningUserDisplay) {
         returningUserDisplay.innerHTML = isReturning ? 'Back' : '';

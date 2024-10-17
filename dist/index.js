@@ -1,33 +1,43 @@
+// Enum Types mini-challenge
+// Replace the value of loyaltyUser to a GOLD_USER, SILVER_USER or BRONZE_USER, making sure to
+// use what we learnt about Enums in the previous lesson. Make Sheia GOLD, Andrzej BRONZE 
+// and Omar SILVER.
+// 2. export the enum
+// 3. Fix the function in the utils to show Sheias star as she is a GOLD_USER.
 //This imports the functions from the utils.ts file
-//When importing have ti name the file.js as it wont automaticcaly update when transpiled to javascript
-import { showReviewTotal, populateUser } from './utils.js';
-let isOpen;
+//When importing name the file.js as it wont automaticcaly update when transpiled to javascript
+import { showReview, populateUser } from './utils.js';
+import { Permissions } from './enums.js';
+import { LoyaltyLevels } from './enums.js';
+// Select the container for properties
+const propertiesContainer = document.querySelector(".properties");
 const footer = document.querySelector('.footer');
 // Reviews
 const reviews = [
     {
         name: 'Sheia',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyLevels.GOLD_USER,
         date: '01-04-2021'
     },
     {
         name: 'Andrzej',
         stars: 3,
-        loyaltyUser: false,
+        loyaltyUser: LoyaltyLevels.BRONZE_USER,
         date: '28-03-2021'
     },
     {
         name: 'Omar',
         stars: 4,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyLevels.SILVER_USER,
         date: '27-03-2021'
     },
 ];
-// User
 const you = {
     firstName: 'Bobby',
     lastName: 'Brown',
+    //the type here is now of type permissions
+    permissions: Permissions.ADMIN,
     isReturning: true,
     age: 35,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
@@ -78,8 +88,6 @@ const properties = [{
 // This is a continuation of the Challenge, in which you are asked to add
 // the 3 properties image and title to the dashboard based on the 
 // properties array
-// Select the container for properties
-const propertiesContainer = document.querySelector(".properties");
 function displayProperties(properties) {
     for (let i = 0; i < properties.length; i++) {
         // create a new div 
@@ -120,6 +128,6 @@ footer.innerHTML = `${currentLocation[0]} ${currentLocation[1]}  ${temperature}Â
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Show total reviews and populate user information
-    showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+    showReview(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
     populateUser(you.isReturning, you.firstName);
 });
