@@ -1,6 +1,8 @@
 //This imports the functions from the utils.ts file
+//When importing have ti name the file.js as it wont automaticcaly update when transpiled to javascript
 import { showReviewTotal, populateUser } from './utils.js';
 let isOpen;
+const footer = document.querySelector('.footer');
 // Reviews
 const reviews = [
     {
@@ -42,7 +44,7 @@ const properties = [{
             postcode: 'W21FTXS',
             country: 'Sri Lanka'
         },
-        contact: 'jim@gmail.com',
+        contact: [+1211251251, 'jim@gmail.com'],
         isAvailable: true
     },
     {
@@ -55,7 +57,7 @@ const properties = [{
             postcode: 'RTT343903',
             country: 'Poland'
         },
-        contact: 'marywinkle@gmail.com',
+        contact: [+1211251251, 'marywinkle@gmail.com'],
         isAvailable: false
     },
     {
@@ -68,7 +70,7 @@ const properties = [{
             postcode: 'VT35433',
             country: 'Poland'
         },
-        contact: 'garydavis@hotmail.com',
+        contact: [+1211251251, 'garydavis@hotmail.com'],
         isAvailable: false
     }
 ];
@@ -79,15 +81,39 @@ const properties = [{
 // Select the container for properties
 const propertiesContainer = document.querySelector(".properties");
 function displayProperties(properties) {
-    propertiesContainer.innerHTML = '';
     for (let i = 0; i < properties.length; i++) {
-        propertiesContainer.innerHTML += `
-             <h3> ${properties[i].title} </h3>
-             <img src="${properties[i].image}" />
-            `;
+        // create a new div 
+        const card = document.createElement('div');
+        //This line is the same as in html saying class= "card"
+        // This means all we can use this class in style etc.
+        card.classList.add('card');
+        //Makes the innerHTML the value of the properties.title at i
+        card.innerHTML = properties[i].title;
+        // create a new element of image
+        const image = document.createElement('img');
+        image.setAttribute('src', properties[i].image);
+        image.setAttribute('alt', properties[i].title); // Sets the alt text
+        //append the image to to the card
+        card.appendChild(image);
+        // append the card to the container
+        propertiesContainer.appendChild(card);
     }
 }
 displayProperties(properties);
+//use your location , current time and current temperature of your location.
+// Tuples challenge
+// 1. Add an array to the variable of currentLocation I have added. This array
+// must have your current location, time, and degrees celcius of your location
+// NOTE: make sure to make this a Tuple, to only allow those types in that
+// structure.
+// 2. Add this visually to a footer on your site
+let currentLocation;
+const now = new Date();
+const currentTime = now.toLocaleTimeString();
+const location = "Hamburg";
+const temperature = 23;
+currentLocation = [location, currentTime, temperature];
+footer.innerHTML = `${currentLocation[0]} ${currentLocation[1]}  ${temperature}°C `;
 // Functions
 //These functions expect to be passed values of the same types defined in their function
 // This is similiar to java.  The arguments are defined based on type in the function . This means errors show up easier.
